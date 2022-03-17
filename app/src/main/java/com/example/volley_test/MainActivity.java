@@ -1,9 +1,13 @@
 package com.example.volley_test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -31,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
         movie=findViewById(R.id.movie);
         movie.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver(){
+            @Override
+            public void onReceive(Context context, Intent intent) {
 
-
+            }
+        };
+        LocalBroadcastManager.getInstance(MainActivity.this).registerReceiver(broadcastReceiver,new IntentFilter("android.provider.Telyphony.SMS_RECEIVED"));
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/popular?api_key=fd606e08be09c37b963ebf8fdeebbf86", null, new Response.Listener<JSONObject>() {
             @Override
