@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class BroadcastActivity extends AppCompatActivity {
+public class    BroadcastActivity extends AppCompatActivity {
     private static BroadcastActivity instance;
     TextView tv_mobile,tv_message;
     public static BroadcastActivity getInstance(){
@@ -20,7 +20,7 @@ public class BroadcastActivity extends AppCompatActivity {
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver(){
         @Override
         public void onReceive(Context context, Intent intent) {
-            super.onReceive(context, intent);
+
 
         }
     };
