@@ -16,19 +16,9 @@ public class BroadcastActivity extends AppCompatActivity {
     public static BroadcastActivity getInstance(){
         return instance;
     }
-
-    BroadcastReceiver broadcastReceiver = new BroadcastReceiver(){
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-
-        }
-    };
-
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(broadcastReceiver,new IntentFilter("android.provider.Telyphony.SMS_RECEIVED"));
         instance=this;
     }
 
